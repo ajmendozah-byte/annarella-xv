@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3b0d18">
+<meta property="og:title" content="Mis XV años — Annarella">
+<meta property="og:description" content="Una noche especial para celebrar los XV años de Annarella.">
+<title>Mis XV años — Annarella</title>
+<style>
+:root {
+  --burgundy:#3b0d18; --wine:#5a1525; --gold:#c9a45c; --cream:#f7efd9;
+  --dark:#13090d; --muted:#d9c9a5;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#10070a;color:var(--cream);font-family:Georgia,"Times New Roman",serif}
+button,a{font:inherit}
+.screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(#17090dbd,#17090de8),url('imagenes/portada.png') center/cover;}
+.hero-inner{width:min(760px,100%);text-align:center;padding:50px 20px}
+.ornament{color:var(--gold);font-size:30px;letter-spacing:8px}
+h1{font-size:clamp(44px,10vw,88px);margin:12px 0 0;font-weight:normal}
+.subtitle{font-size:clamp(18px,4vw,28px);letter-spacing:5px;color:var(--gold)}
+.lead{font-size:18px;line-height:1.7;max-width:560px;margin:25px auto;color:#f5ead1}
+.envelope{width:min(430px,85vw);height:275px;margin:32px auto 25px;position:relative;cursor:pointer;filter:drop-shadow(0 20px 25px #0009)}
+.env-body{position:absolute;inset:0;background:linear-gradient(135deg,#591727,#35101a);border:2px solid var(--gold);border-radius:5px}
+.env-flap{position:absolute;inset:0;background:#6b1c2d;clip-path:polygon(0 0,100% 0,50% 62%);border-top:2px solid var(--gold);z-index:2}
+.seal{position:absolute;z-index:3;left:50%;top:49%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:#161015;border:2px solid var(--gold);display:grid;place-items:center;font-size:30px}
+.open-btn,.back-btn,.map-btn,.rsvp-btn{border:1px solid var(--gold);background:linear-gradient(135deg,#6b1b2e,#3b0d18);color:#fff2cf;padding:13px 22px;border-radius:30px;text-decoration:none;cursor:pointer;display:inline-block;box-shadow:0 8px 20px #0005}
+.hint{font-size:13px;color:var(--muted);letter-spacing:2px}
+.card-section{background:radial-gradient(circle at 50% 20%,#5a1525 0,#1c0b10 48%,#0e0609 100%);display:none}
+.card{width:min(760px,100%);min-height:90vh;background:linear-gradient(180deg,#fbf2dc,#ead9b2);color:#34131a;border:7px double var(--gold);padding:42px 28px;position:relative;box-shadow:0 20px 70px #0009;text-align:center}
+.card:before,.card:after{content:"";position:absolute;inset:12px;border:1px solid #b28a42;pointer-events:none}
+.mask{font-size:55px;margin-bottom:5px}
+.card h2{font-size:clamp(36px,8vw,62px);font-weight:normal;margin:8px 0;color:#531426}
+.xv{letter-spacing:7px;color:#9b7130;font-size:20px}
+.divider{color:#a37a35;font-size:25px;margin:15px}
+.invite-text{font-size:18px;line-height:1.8;max-width:610px;margin:18px auto}
+.date{font-size:23px;font-weight:bold;margin-top:22px}
+.venue{font-size:19px;margin-top:12px}
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:38px;position:relative}
+.action{background:#3b0d18;color:#f9e8bf;border:1px solid #b9934b;border-radius:14px;padding:15px 7px;text-decoration:none;min-height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px}
+.action span:first-child{font-size:25px}
+.panel{display:none;min-height:100vh;padding:28px 18px;background:radial-gradient(circle at top,#5a1525,#12080c 65%)}
+.panel-inner{width:min(700px,100%);margin:auto;background:#f7efd9;color:#35121a;border:5px double var(--gold);padding:28px 20px;text-align:center}
+.panel h3{font-size:34px;font-weight:normal;color:#531426;margin:8px 0 18px}
+.venue-photo{width:100%;max-height:430px;object-fit:cover;border:2px solid #ad8540}
+.address{font-size:18px;line-height:1.6;margin:18px 0}
+.back-btn{margin-top:18px}
+.gallery-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.gallery-grid img{width:100%;max-height:600px;object-fit:cover;border:2px solid #b9934b}
+.footer-note{margin-top:25px;font-size:13px;color:#80603b}
+@media(max-width:560px){
+  .screen{padding:14px}
+  .card{padding:30px 15px;min-height:95vh}
+  .actions{grid-template-columns:repeat(2,1fr)}
+  .invite-text{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<section id="home" class="screen hero">
+  <div class="hero-inner">
+    <div class="ornament">✦ ❖ ✦</div>
+    <div class="subtitle">MIS XV AÑOS</div>
+    <h1>Annarella</h1>
+    <p class="lead">Hay momentos en la vida que merecen ser compartidos y esta noche será uno de ellos.</p>
+    <div class="envelope" onclick="openInvitation()" aria-label="Abrir invitación">
+      <div class="env-body"></div><div class="env-flap"></div>
+      <div class="seal">A</div>
+    </div>
+    <button class="open-btn" onclick="openInvitation()">Abrir invitación</button>
+    <p class="hint">Toca el sobre para comenzar</p>
+  </div>
+</section>
+
+<section id="invitation" class="screen card-section">
+  <div class="card">
+    <div class="mask">🎭</div>
+    <div class="xv">MIS XV AÑOS</div>
+    <h2>Annarella</h2>
+    <div class="divider">❦ ✦ ❦</div>
+    <p class="invite-text">
+      Los padres de Annarella tienen el agrado de invitarte a compartir la celebración de sus XV años.<br>
+      Tu presencia hará de esta noche un momento aún más especial.<br>
+      <strong>¡Te esperamos!</strong>
+    </p>
+    <div class="date">Jueves 15 de Octubre del 2026<br>9:00 P.M.</div>
+    <div class="venue">Salón del festejo: <strong>Casa Club “El Sol”</strong></div>
+
+    <div class="actions">
+      <a class="action" href="https://maps.app.goo.gl/4gWha1HKrj1B6u5JA" target="_blank" rel="noopener">
+        <span>📍</span><span>Ubicación</span>
+      </a>
+      <button class="action" onclick="showPanel('place')"><span>🏛️</span><span>Lugar</span></button>
+      <a class="action" href="https://wa.me/51912036349?text=Hola%2C%20deseo%20confirmar%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Annarella%2C%20el%20jueves%2015%20de%20octubre%20de%202026.%20%C2%A1Muchas%20gracias%21" target="_blank" rel="noopener">
+        <span>💌</span><span>Confirmar<br>Asistencia</span>
+      </a>
+      <button class="action" onclick="showPanel('gallery')"><span>📷</span><span>Galería<br>de Fotos</span></button>
+    </div>
+  </div>
+</section>
+
+<section id="place" class="panel">
+  <div class="panel-inner">
+    <div class="mask">🏛️</div><h3>Casa Club “El Sol”</h3>
+    <img class="venue-photo" src="imagenes/casa-el-sol.jpg" alt="Fachada de Casa Club El Sol">
+    <p class="address"><strong>Av. El Sol Este N.º 527</strong><br>San Carlos, San Juan de Lurigancho<br>Lima, Perú</p>
+    <a class="map-btn" href="https://maps.app.goo.gl/4gWha1HKrj1B6u5JA" target="_blank" rel="noopener">📍 Abrir en Google Maps</a><br>
+    <button class="back-btn" onclick="backToInvitation()">← Volver a la invitación</button>
+  </div>
+</section>
+
+<section id="gallery" class="panel">
+  <div class="panel-inner">
+    <div class="mask">📷</div><h3>Galería de Fotos</h3>
+    <div class="gallery-grid">
+      <img src="imagenes/portada.png" alt="Annarella — portada">
+      <img src="imagenes/invitacion.png" alt="Invitación de Annarella">
+    </div>
+    <p class="footer-note">Aquí podremos agregar las fotografías de Annarella cuando las tengas.</p>
+    <button class="back-btn" onclick="backToInvitation()">← Volver a la invitación</button>
+  </div>
+</section>
+
+<script>
+function openInvitation(){
+  document.getElementById('home').style.display='none';
+  document.getElementById('invitation').style.display='flex';
+  window.scrollTo(0,0);
+}
+function showPanel(id){
+  document.getElementById('invitation').style.display='none';
+  document.getElementById('home').style.display='none';
+  document.querySelectorAll('.panel').forEach(p=>p.style.display='none');
+  document.getElementById(id).style.display='block';
+  window.scrollTo(0,0);
+}
+function backToInvitation(){
+  document.querySelectorAll('.panel').forEach(p=>p.style.display='none');
+  document.getElementById('invitation').style.display='flex';
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
